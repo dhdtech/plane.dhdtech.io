@@ -20,11 +20,10 @@ import "@fontsource-variable/inter";
 import "@fontsource/material-symbols-rounded";
 import "@fontsource/ibm-plex-mono";
 
-const APP_TITLE = "Plane | Simple, extensible, open-source project management tool.";
+const APP_TITLE = "Plane | DHDTech.io";
 const SPACE_GROTESK_FONT = "/fonts/space-grotesk-vf.woff2";
 const MARTIAN_MONO_FONT = "/fonts/martian-mono-vf-latin.woff2";
-const APP_DESCRIPTION =
-  "Open-source project management tool to manage work items, sprints, and product roadmaps with peace of mind.";
+const APP_DESCRIPTION = "DHDTech's control panel for managing the Plane instance.";
 
 export const links: LinksFunction = () => [
   { rel: "apple-touch-icon", sizes: "180x180", href: appleTouchIcon },
@@ -71,13 +70,15 @@ export const meta: Route.MetaFunction = () => [
   { name: "description", content: APP_DESCRIPTION },
   { property: "og:title", content: APP_TITLE },
   { property: "og:description", content: APP_DESCRIPTION },
-  { property: "og:url", content: "https://plane.so/" },
+  { property: "og:url", content: "https://plane.dhdtech.io/god-mode" },
+  { property: "og:image", content: "https://plane.dhdtech.io/og-image.png" },
   {
     name: "keywords",
     content:
       "software development, customer feedback, software, accelerate, code management, release management, project management, work items tracking, agile, scrum, kanban, collaboration",
   },
-  { name: "twitter:site", content: "@planepowers" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:image", content: "https://plane.dhdtech.io/og-image.png" },
 ];
 
 export default function Root() {

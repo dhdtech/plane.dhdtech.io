@@ -1,0 +1,17 @@
+# Plane | DHDTech.io
+
+> Plane is DHDTech's self-hosted project management workspace for planning work items, cycles, and product roadmaps.
+
+This instance is operated by DHDTech at https://plane.dhdtech.io. It runs the makeplane/plane
+application, self-hosted and branded for DHDTech.
+
+## Pages
+
+- [Home](https://plane.dhdtech.io/): workspace entry point and sign-in.
+- [Sign up](https://plane.dhdtech.io/sign-up): create an account.
+- [Sign in](https://plane.dhdtech.io/sign-in): authenticate to an existing account.
+
+## Notes
+
+- The public API is served under https://plane.dhdtech.io/api/ and is not intended for crawling.
+- Support: contact@dhdtech.io

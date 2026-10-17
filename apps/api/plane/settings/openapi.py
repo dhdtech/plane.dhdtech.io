@@ -15,13 +15,12 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "The Plane REST API",
     "DESCRIPTION": (
         "The Plane REST API\n\n"
-        "Visit our quick start guide and full API documentation at "
-        "[developers.plane.so](https://developers.plane.so/api-reference/introduction)."
+        "Visit the DHDTech documentation at https://dhdtech.io."
     ),
     "CONTACT": {
         "name": "Plane",
-        "url": "https://plane.so",
-        "email": "support@plane.so",
+        "url": "https://plane.dhdtech.io",
+        "email": "contact@dhdtech.io",
     },
     "VERSION": "0.0.1",
     "LICENSE": {
@@ -45,7 +44,7 @@ SPECTACULAR_SETTINGS = {
     # ========================================================================
     "SERVERS": [
         {"url": "http://localhost:8000", "description": "Local"},
-        {"url": "https://api.plane.so", "description": "Production"},
+        {"url": "https://plane.dhdtech.io/api", "description": "Production"},
     ],
     # ========================================================================
     # API Tag Definitions

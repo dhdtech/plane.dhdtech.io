@@ -4,20 +4,21 @@
  * See the LICENSE file for details.
  */
 
-export const SITE_NAME = "Plane | Simple, extensible, open-source project management tool.";
-export const SITE_TITLE = "Plane | Simple, extensible, open-source project management tool.";
+export const SITE_NAME = "Plane | DHDTech.io";
+export const SITE_TITLE = "Plane | DHDTech.io";
 export const SITE_DESCRIPTION =
-  "Open-source project management tool to manage work items, cycles, and product roadmaps easily";
+  "DHDTech's project management workspace for planning work items, cycles, and product roadmaps.";
 export const SITE_KEYWORDS =
   "software development, plan, ship, software, accelerate, code management, release management, project management, work items tracking, agile, scrum, kanban, collaboration";
-export const SITE_URL = "https://app.plane.so/";
-export const TWITTER_USER_NAME = "Plane | Simple, extensible, open-source project management tool.";
+export const SITE_URL = "https://plane.dhdtech.io/";
+export const TWITTER_USER_NAME = "DHDTech.io";
 
 // Plane Sites Metadata
-export const SPACE_SITE_NAME = "Plane Publish | Make your Plane boards and roadmaps pubic with just one-click. ";
-export const SPACE_SITE_TITLE = "Plane Publish | Make your Plane boards public with one-click";
-export const SPACE_SITE_DESCRIPTION = "Plane Publish is a customer feedback management tool built on top of plane.so";
+export const SPACE_SITE_NAME = "Plane Publish | DHDTech.io";
+export const SPACE_SITE_TITLE = "Plane Publish | DHDTech.io";
+export const SPACE_SITE_DESCRIPTION =
+  "Publish DHDTech's Plane boards and roadmaps as public pages with a single click.";
 export const SPACE_SITE_KEYWORDS =
   "software development, customer feedback, software, accelerate, code management, release management, project management, work items tracking, agile, scrum, kanban, collaboration";
-export const SPACE_SITE_URL = "https://app.plane.so/";
-export const SPACE_TWITTER_USER_NAME = "planepowers";
+export const SPACE_SITE_URL = "https://plane.dhdtech.io/spaces/";
+export const SPACE_TWITTER_USER_NAME = "DHDTech.io";

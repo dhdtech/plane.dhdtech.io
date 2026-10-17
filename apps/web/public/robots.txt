@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /sign-in
+Allow: /sign-up
+Disallow: /api/
+
+Sitemap: https://plane.dhdtech.io/sitemap.xml

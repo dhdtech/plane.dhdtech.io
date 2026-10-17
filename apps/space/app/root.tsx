@@ -23,8 +23,8 @@ import "@fontsource-variable/inter";
 import "@fontsource/material-symbols-rounded";
 import "@fontsource/ibm-plex-mono";
 
-const APP_TITLE = "Plane Publish | Make your Plane boards public with one-click";
-const APP_DESCRIPTION = "Plane Publish is a customer feedback management tool built on top of plane.so";
+const APP_TITLE = "Plane Publish | DHDTech.io";
+const APP_DESCRIPTION = "Publish DHDTech's Plane boards and roadmaps as public pages with a single click.";
 const SPACE_GROTESK_FONT = "/fonts/space-grotesk-vf.woff2";
 const MARTIAN_MONO_FONT = "/fonts/martian-mono-vf-latin.woff2";
 
@@ -82,13 +82,15 @@ export const meta: Route.MetaFunction = () => [
   { name: "description", content: APP_DESCRIPTION },
   { property: "og:title", content: APP_TITLE },
   { property: "og:description", content: APP_DESCRIPTION },
-  { property: "og:url", content: "https://sites.plane.so/" },
+  { property: "og:url", content: "https://plane.dhdtech.io/spaces/" },
+  { property: "og:image", content: "https://plane.dhdtech.io/og-image.png" },
   {
     name: "keywords",
     content:
       "software development, customer feedback, software, accelerate, code management, release management, project management, work item tracking, agile, scrum, kanban, collaboration",
   },
-  { name: "twitter:site", content: "@planepowers" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:image", content: "https://plane.dhdtech.io/og-image.png" },
 ];
 
 export default function Root() {
