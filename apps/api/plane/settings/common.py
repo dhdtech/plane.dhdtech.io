@@ -206,7 +206,7 @@ if bool(os.environ.get("DATABASE_URL")):
     # Parse database configuration from $DATABASE_URL
     DATABASES = {"default": dj_database_url.config()}
     # Server-side cursors need a session; PgBouncer runs in transaction pooling.
-    DATABASES["default"].setdefault("OPTIONS", {})["DISABLE_SERVER_SIDE_CURSORS"] = True
+    DATABASES["default"]["DISABLE_SERVER_SIDE_CURSORS"] = True
 else:
     DATABASES = {
         "default": {
@@ -217,7 +217,7 @@ else:
             "HOST": os.environ.get("POSTGRES_HOST"),
             "PORT": os.environ.get("POSTGRES_PORT", "5432"),
             # Server-side cursors need a session; PgBouncer runs in transaction pooling.
-            "OPTIONS": {"DISABLE_SERVER_SIDE_CURSORS": True},
+            "DISABLE_SERVER_SIDE_CURSORS": True,
         }
     }
 
