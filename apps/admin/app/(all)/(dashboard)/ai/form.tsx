@@ -21,6 +21,38 @@ type IInstanceAIForm = {
 
 type AIFormValues = Record<TInstanceAIConfigurationKeys, string>;
 
+type TLLMProvider = "openai" | "anthropic" | "deepseek";
+
+type TLLMProviderDetails = {
+  label: string;
+  modelPlaceholder: string;
+  apiKeyUrl: string;
+};
+
+const LLM_PROVIDER_DETAILS: Record<TLLMProvider, TLLMProviderDetails> = {
+  openai: {
+    label: "OpenAI",
+    modelPlaceholder: "gpt-4o-mini",
+    apiKeyUrl: "https://platform.openai.com/api-keys",
+  },
+  anthropic: {
+    label: "Anthropic",
+    modelPlaceholder: "claude-3-5-sonnet-20240620",
+    apiKeyUrl: "https://console.anthropic.com/settings/keys",
+  },
+  deepseek: {
+    label: "DeepSeek",
+    modelPlaceholder: "deepseek-chat",
+    apiKeyUrl: "https://platform.deepseek.com/api_keys",
+  },
+};
+
+const llmProviderOptions: { value: string; label: string }[] = [
+  { value: "openai", label: "OpenAI" },
+  { value: "anthropic", label: "Anthropic" },
+  { value: "deepseek", label: "DeepSeek" },
+];
+
 export function InstanceAIForm(props: IInstanceAIForm) {
   const { config } = props;
   // store
@@ -29,34 +61,36 @@ export function InstanceAIForm(props: IInstanceAIForm) {
   const {
     handleSubmit,
     control,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<AIFormValues>({
     defaultValues: {
-      LLM_API_KEY: config["LLM_API_KEY"],
+      LLM_PROVIDER: config["LLM_PROVIDER"] || "openai",
       LLM_MODEL: config["LLM_MODEL"],
+      LLM_API_KEY: config["LLM_API_KEY"],
+      LLM_BASE_URL: config["LLM_BASE_URL"] || "",
     },
   });
 
+  const providerDetails =
+    LLM_PROVIDER_DETAILS[watch("LLM_PROVIDER") as TLLMProvider] || LLM_PROVIDER_DETAILS.openai;
+
   const aiFormFields: TControllerInputFormField[] = [
+    {
+      key: "LLM_PROVIDER",
+      type: "select",
+      label: "LLM provider",
+      options: llmProviderOptions,
+      placeholder: "",
+      error: Boolean(errors.LLM_PROVIDER),
+      required: false,
+    },
     {
       key: "LLM_MODEL",
       type: "text",
       label: "LLM Model",
-      description: (
-        <>
-          Choose an OpenAI engine.{" "}
-          <a
-            href="https://platform.openai.com/docs/models/overview"
-            target="_blank"
-            className="text-accent-primary hover:underline"
-            rel="noreferrer"
-            aria-label="OpenAI models documentation"
-          >
-            Learn more
-          </a>
-        </>
-      ),
-      placeholder: "gpt-4o-mini",
+      description: `Model to use with ${providerDetails.label}, for example ${providerDetails.modelPlaceholder}.`,
+      placeholder: providerDetails.modelPlaceholder,
       error: Boolean(errors.LLM_MODEL),
       required: false,
     },
@@ -66,13 +100,13 @@ export function InstanceAIForm(props: IInstanceAIForm) {
       label: "API key",
       description: (
         <>
-          You will find your API key{" "}
+          You will find your {providerDetails.label} API key{" "}
           <a
-            href="https://platform.openai.com/api-keys"
+            href={providerDetails.apiKeyUrl}
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="OpenAI API keys page"
+            aria-label={`${providerDetails.label} API keys page`}
           >
             here.
           </a>
@@ -80,6 +114,16 @@ export function InstanceAIForm(props: IInstanceAIForm) {
       ),
       placeholder: "sk-asddassdfasdefqsdfasd23das3dasdcasd",
       error: Boolean(errors.LLM_API_KEY),
+      required: false,
+    },
+    {
+      key: "LLM_BASE_URL",
+      type: "text",
+      label: "Base URL",
+      description:
+        "Only needed for a custom OpenAI-compatible endpoint. Leave blank to use the provider default.",
+      placeholder: "https://api.deepseek.com",
+      error: Boolean(errors.LLM_BASE_URL),
       required: false,
     },
   ];
@@ -102,8 +146,10 @@ export function InstanceAIForm(props: IInstanceAIForm) {
     <div className="space-y-8">
       <div className="space-y-3">
         <div>
-          <div className="pb-1 text-18 font-medium text-primary">OpenAI</div>
-          <div className="text-13 font-regular text-tertiary">If you use ChatGPT, this is for you.</div>
+          <div className="pb-1 text-18 font-medium text-primary">AI provider</div>
+          <div className="text-13 font-regular text-tertiary">
+            Configure the model provider used for Plane AI features.
+          </div>
         </div>
         <div className="grid-col grid w-full grid-cols-1 items-center justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
           {aiFormFields.map((field) => (
@@ -117,6 +163,7 @@ export function InstanceAIForm(props: IInstanceAIForm) {
               placeholder={field.placeholder}
               error={field.error}
               required={field.required}
+              options={field.options}
             />
           ))}
         </div>

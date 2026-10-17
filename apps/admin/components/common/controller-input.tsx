@@ -15,27 +15,29 @@ import { cn } from "@plane/utils";
 
 type Props = {
   control: Control<any>;
-  type: "text" | "password";
+  type: "text" | "password" | "select";
   name: string;
   label: string;
   description?: string | React.ReactNode;
   placeholder: string;
   error: boolean;
   required: boolean;
+  options?: { value: string; label: string }[];
 };
 
 export type TControllerInputFormField = {
   key: string;
-  type: "text" | "password";
+  type: "text" | "password" | "select";
   label: string;
   description?: string | React.ReactNode;
   placeholder: string;
   error: boolean;
   required: boolean;
+  options?: { value: string; label: string }[];
 };
 
 export function ControllerInput(props: Props) {
-  const { name, control, type, label, description, placeholder, error, required } = props;
+  const { name, control, type, label, description, placeholder, error, required, options } = props;
   // states
   const [showPassword, setShowPassword] = useState(false);
 
@@ -47,21 +49,42 @@ export function ControllerInput(props: Props) {
           control={control}
           name={name}
           rules={{ required: required ? `${label} is required.` : false }}
-          render={({ field: { value, onChange, ref } }) => (
-            <Input
-              id={name}
-              name={name}
-              type={type === "password" && showPassword ? "text" : type}
-              value={value}
-              onChange={onChange}
-              ref={ref}
-              hasError={error}
-              placeholder={placeholder}
-              className={cn("w-full rounded-md font-medium", {
-                "pr-10": type === "password",
-              })}
-            />
-          )}
+          render={({ field: { value, onChange, ref } }) =>
+            type === "select" ? (
+              <select
+                id={name}
+                name={name}
+                value={value ?? ""}
+                onChange={onChange}
+                ref={ref}
+                aria-invalid={error || undefined}
+                className={cn(
+                  "block w-full rounded-md border-[0.5px] bg-layer-2 px-3 py-2 text-13 font-medium focus:outline-none",
+                  { "border-danger-strong": error, "border-subtle-1": !error }
+                )}
+              >
+                {options?.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <Input
+                id={name}
+                name={name}
+                type={type === "password" && showPassword ? "text" : type}
+                value={value}
+                onChange={onChange}
+                ref={ref}
+                hasError={error}
+                placeholder={placeholder}
+                className={cn("w-full rounded-md font-medium", {
+                  "pr-10": type === "password",
+                })}
+              />
+            )
+          }
         />
         {type === "password" &&
           (showPassword ? (
