@@ -1,3 +1,11 @@
+> **DHDTech fork**
+>
+> This is DHDTech's self-hosted Plane instance at https://plane.dhdtech.io, forked from
+> [makeplane/plane](https://github.com/makeplane/plane) v1.4.2. Local changes: Caddy routes to the
+> prefixed compose service names, the DHDTech design tokens and typefaces (Space Grotesk, Martian
+> Mono), the DHDTech logo and favicon set, DHDTech metadata and SEO files, and rebranded
+> transactional emails. The upstream documentation below applies unless noted otherwise.
+
 <br /><br />
 
 <p align="center">
