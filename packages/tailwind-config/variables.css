@@ -396,6 +396,57 @@
     --bg-plans-brand-subtle: var(--brand-200);
     --bg-plans-brand-solid: var(--brand-1200);
 
+    /* -------------------- DHDTech paper theme -------------------- */
+    --bg-canvas: #f5f5f4;
+    --bg-surface-1: #ffffff;
+    --bg-surface-2: #fafaf9;
+    --bg-layer-1: #f0efed;
+    --bg-layer-1-hover: #e7e5e4;
+    --bg-layer-1-active: #d6d3d1;
+    --bg-layer-1-selected: #d6d3d1;
+    --bg-layer-2: #e7e5e4;
+    --bg-layer-2-hover: #d6d3d1;
+    --bg-layer-2-active: #d6d3d1;
+    --bg-layer-2-selected: #d6d3d1;
+    --bg-layer-3: #d6d3d1;
+    --bg-layer-3-hover: #d6d3d1;
+    --bg-layer-3-active: #d6d3d1;
+    --bg-layer-3-selected: #d6d3d1;
+    --bg-layer-disabled: #f0efed;
+    --bg-inverse: #0a0a0a;
+    --border-subtle: rgba(10, 10, 10, 0.1);
+    --border-subtle-1: rgba(10, 10, 10, 0.16);
+    --border-strong: rgba(10, 10, 10, 0.24);
+    --border-strong-1: rgba(10, 10, 10, 0.24);
+    --border-inverse: #0a0a0a;
+    --txt-primary: #0a0a0a;
+    --txt-secondary: #57534e;
+    --txt-tertiary: #78716c;
+    --txt-placeholder: #78716c;
+    --txt-inverse: #f5f5f4;
+    --txt-on-color: #ffffff;
+    --txt-icon-primary: #0a0a0a;
+    --txt-icon-secondary: #57534e;
+    --txt-icon-tertiary: #78716c;
+    --txt-icon-placeholder: #78716c;
+    --txt-icon-on-color: #ffffff;
+    --brand-default: #6366f1;
+    --bg-accent-primary: #6366f1;
+    --bg-accent-primary-hover: #4f46e5;
+    --bg-accent-primary-active: #4f46e5;
+    --bg-accent-subtle: rgba(99, 102, 241, 0.16);
+    --bg-accent-subtle-hover: rgba(99, 102, 241, 0.24);
+    --bg-accent-subtle-active: rgba(99, 102, 241, 0.32);
+    --border-accent-strong: #6366f1;
+    --border-accent-subtle: rgba(99, 102, 241, 0.32);
+    --txt-accent-primary: #6366f1;
+    --txt-accent-secondary: #4f46e5;
+    --txt-link-primary: #6366f1;
+    --txt-link-primary-hover: #4f46e5;
+    --txt-icon-accent-primary: #6366f1;
+    --txt-icon-accent-subtle: #4f46e5;
+    --txt-icon-accent-secondary: #4f46e5;
+
     /* ---------- Dark mode color tokens ---------- */
     @variant dark {
       /* Neutral colors */
@@ -645,6 +696,57 @@
       --txt-plans-brand-color: var(--brand-100);
       --bg-plans-brand-subtle: var(--brand-200);
       --bg-plans-brand-solid: var(--brand-1100);
+
+      /* -------------------- DHDTech void theme -------------------- */
+      --bg-canvas: #0a0a0a;
+      --bg-surface-1: #101010;
+      --bg-surface-2: #161616;
+      --bg-layer-1: #161616;
+      --bg-layer-1-hover: #1e1e1e;
+      --bg-layer-1-active: #262626;
+      --bg-layer-1-selected: #262626;
+      --bg-layer-2: #1e1e1e;
+      --bg-layer-2-hover: #262626;
+      --bg-layer-2-active: #2e2e2e;
+      --bg-layer-2-selected: #2e2e2e;
+      --bg-layer-3: #262626;
+      --bg-layer-3-hover: #2e2e2e;
+      --bg-layer-3-active: #2e2e2e;
+      --bg-layer-3-selected: #2e2e2e;
+      --bg-layer-disabled: #1e1e1e;
+      --bg-inverse: #e0e0e0;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-subtle-1: rgba(255, 255, 255, 0.14);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-strong-1: rgba(255, 255, 255, 0.24);
+      --border-inverse: #e0e0e0;
+      --txt-primary: #e0e0e0;
+      --txt-secondary: #9ca3af;
+      --txt-tertiary: #828a97;
+      --txt-placeholder: #828a97;
+      --txt-inverse: #0a0a0a;
+      --txt-on-color: #ffffff;
+      --txt-icon-primary: #e0e0e0;
+      --txt-icon-secondary: #9ca3af;
+      --txt-icon-tertiary: #828a97;
+      --txt-icon-placeholder: #828a97;
+      --txt-icon-on-color: #ffffff;
+      --brand-default: #6366f1;
+      --bg-accent-primary: #6366f1;
+      --bg-accent-primary-hover: #4f46e5;
+      --bg-accent-primary-active: #4f46e5;
+      --bg-accent-subtle: rgba(99, 102, 241, 0.16);
+      --bg-accent-subtle-hover: rgba(99, 102, 241, 0.24);
+      --bg-accent-subtle-active: rgba(99, 102, 241, 0.32);
+      --border-accent-strong: #6366f1;
+      --border-accent-subtle: rgba(99, 102, 241, 0.32);
+      --txt-accent-primary: #6366f1;
+      --txt-accent-secondary: #4f46e5;
+      --txt-link-primary: #6366f1;
+      --txt-link-primary-hover: #4f46e5;
+      --txt-icon-accent-primary: #6366f1;
+      --txt-icon-accent-subtle: #4f46e5;
+      --txt-icon-accent-secondary: #4f46e5;
     }
 
     /* -------------------- Dark high contrast mode color tokens -------------------- */
@@ -692,9 +794,20 @@
 @theme {
   --color-*: initial;
   --color-white: oklch(1 0 0);
-  --color-black: oklch(0.1482 0.0034 196.79);
+  --color-black: #0a0a0a;
   /* ---------- Border radius ---------- */
-  --radius-4xl: initial;
+  --radius-*: initial;
+  --radius: 0px;
+  --radius-none: 0px;
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --radius-full: 9999px;
   /* ---------- Border width ---------- */
   --border-width-*: initial;
   --border-width-sm: 1px;
