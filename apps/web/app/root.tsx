@@ -31,11 +31,12 @@ import { CustomErrorComponent } from "./error";
 import { AppProvider } from "./provider";
 // fonts
 import "@fontsource-variable/inter";
-import interVariableWoff2 from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import "@fontsource/material-symbols-rounded";
 import "@fontsource/ibm-plex-mono";
 
 const APP_TITLE = "Plane | Simple, extensible, open-source project management tool.";
+const SPACE_GROTESK_FONT = "/fonts/space-grotesk-vf.woff2";
+const MARTIAN_MONO_FONT = "/fonts/martian-mono-vf-latin.woff2";
 
 export const links: LinksFunction = () => [
   { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32 },
@@ -49,7 +50,14 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalStyles },
   {
     rel: "preload",
-    href: interVariableWoff2,
+    href: SPACE_GROTESK_FONT,
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preload",
+    href: MARTIAN_MONO_FONT,
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",

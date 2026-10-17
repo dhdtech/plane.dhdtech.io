@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Space Grotesk Variable";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/space-grotesk-vf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Martian Mono Variable";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("/fonts/martian-mono-vf-latin.woff2") format("woff2");
+}
+
 @custom-variant dark (&:where([data-theme*="dark"], [data-theme*="dark"] *));
 @custom-variant dark-high-contrast (&:where([data-theme="dark-contrast"], [data-theme="dark-contrast"] *));
 @custom-variant light-high-contrast (&:where([data-theme="light-contrast"], [data-theme="light-contrast"] *));
@@ -1092,14 +1108,15 @@
 @theme {
   /* ---------- Font family ---------- */
   --font-*: initial;
-  --font-heading:
-    "Inter Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-body:
-    "Inter Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-code:
-    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    "Space Grotesk Variable", "Space Grotesk", "Inter Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-mono:
+    "Martian Mono Variable", "Martian Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --font-code: var(--font-mono);
 
   /* ---------- Font weight ---------- */
   --font-weight-*: initial;
