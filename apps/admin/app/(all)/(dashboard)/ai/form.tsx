@@ -42,7 +42,7 @@ const LLM_PROVIDER_DETAILS: Record<TLLMProvider, TLLMProviderDetails> = {
   },
   deepseek: {
     label: "DeepSeek",
-    modelPlaceholder: "deepseek-chat",
+    modelPlaceholder: "deepseek-flash",
     apiKeyUrl: "https://platform.deepseek.com/api_keys",
   },
 };
