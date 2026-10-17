@@ -4,23 +4,43 @@
 	}
 
   redir /spaces /spaces/ permanent
-	reverse_proxy /spaces/* prod-plane-dhdtech-io-space:3000
+	# The edge terminates TLS; reverse_proxy would otherwise forward the plain-HTTP
+	# scheme it received, and Django would build http:// presigned URLs.
+	reverse_proxy /spaces/* prod-plane-dhdtech-io-space:3000 {
+		header_up X-Forwarded-Proto https
+	}
 
   redir /god-mode /god-mode/ permanent
-	reverse_proxy /god-mode/* prod-plane-dhdtech-io-admin:3000
-	
-	reverse_proxy /live/* prod-plane-dhdtech-io-live:3000
+	reverse_proxy /god-mode/* prod-plane-dhdtech-io-admin:3000 {
+		header_up X-Forwarded-Proto https
+	}
 
-	reverse_proxy /api/* prod-plane-dhdtech-io-api:8000
+	reverse_proxy /live/* prod-plane-dhdtech-io-live:3000 {
+		header_up X-Forwarded-Proto https
+	}
 
-	reverse_proxy /auth/* prod-plane-dhdtech-io-api:8000
+	reverse_proxy /api/* prod-plane-dhdtech-io-api:8000 {
+		header_up X-Forwarded-Proto https
+	}
 
-	reverse_proxy /static/* prod-plane-dhdtech-io-api:8000
+	reverse_proxy /auth/* prod-plane-dhdtech-io-api:8000 {
+		header_up X-Forwarded-Proto https
+	}
 
-	reverse_proxy /{$BUCKET_NAME}/* prod-plane-dhdtech-io-minio:9000
-	reverse_proxy /{$BUCKET_NAME} prod-plane-dhdtech-io-minio:9000
+	reverse_proxy /static/* prod-plane-dhdtech-io-api:8000 {
+		header_up X-Forwarded-Proto https
+	}
 
-	reverse_proxy /* prod-plane-dhdtech-io-web:3000
+	reverse_proxy /{$BUCKET_NAME}/* prod-plane-dhdtech-io-minio:9000 {
+		header_up X-Forwarded-Proto https
+	}
+	reverse_proxy /{$BUCKET_NAME} prod-plane-dhdtech-io-minio:9000 {
+		header_up X-Forwarded-Proto https
+	}
+
+	reverse_proxy /* prod-plane-dhdtech-io-web:3000 {
+		header_up X-Forwarded-Proto https
+	}
 }
 
 {
